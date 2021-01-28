@@ -105,6 +105,8 @@ private extension EachNavigationBar {
         
         isShadowHidden = configuration.isShadowHidden
         
+        masterWidth = configuration.masterWidth //king Customized
+        
         if let shadow = configuration.shadow {
             self.shadow = shadow
         }

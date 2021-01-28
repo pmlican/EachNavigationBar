@@ -32,7 +32,8 @@ public final class Configuration {
     public var barStyle: UIBarStyle = .default
     
     public var statusBarStyle: UIStatusBarStyle = .default
-    
+    /// King Customized
+    public var masterWidth: CGFloat = 0
     /// Additional height for the navigation bar.
     public var additionalHeight: CGFloat = 0
     

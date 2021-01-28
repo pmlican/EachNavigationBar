@@ -13,6 +13,8 @@ open class EachNavigationBar: UINavigationBar {
     /// automatically adjusts position when view layout
     open var automaticallyAdjustsPosition: Bool = true
     
+    open var masterWidth: CGFloat = 0
+    
     /// Additional height for the navigation bar.
     open var additionalHeight: CGFloat = 0 {
         didSet {
@@ -151,6 +153,7 @@ extension EachNavigationBar {
             frame.size = navigationBar.frame.size
         }
         
+        frame.size.width = (masterWidth > 0) ? masterWidth : bounds.width
         frame.size.height = navigationBar.frame.height + _additionalHeight
     }
     
@@ -161,7 +164,7 @@ extension EachNavigationBar {
         background.frame = CGRect(
             x: 0,
             y: -Const.StatusBar.maxY,
-            width: bounds.width,
+            width: (masterWidth > 0) ? masterWidth : bounds.width,
             height: bounds.height + Const.StatusBar.maxY)
         
         adjustsLayoutMarginsAfterIOS11()
@@ -172,6 +175,6 @@ extension EachNavigationBar {
         
         layoutMargins = Const.NavigationBar.layoutMargins
         contentView?.frame.origin.y = prefersLargeTitles ? 0 : additionalHeight
-        contentView?.layoutMargins = layoutPaddings
+//        contentView?.layoutMargins = layoutPaddings
     }
 }
